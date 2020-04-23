@@ -10,7 +10,7 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql:///mybatis"/>
+                <property name="url" value="jdbc:mysql:///mybatis?characterEncoding=UTF-8"/>
                 <property name="username" value="root"/>
                 <property name="password" value="yy5201314"/>
             </dataSource>
