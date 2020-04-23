@@ -7,4 +7,34 @@
     <select id="getUserList" resultType="com.gyy.domain.User">
         select * from user
     </select>
+
+    <!--parameterType用来表示接口中的形参-->
+    <select id="findUserById" parameterType="int" resultType="com.gyy.domain.User">
+        select * from user where id = #{id}
+    </select>
+
+    <!--插入数据-->
+    <insert id="insertUser" parameterType="com.gyy.domain.User">
+        insert into user values(#{id},#{name},#{pwd})
+    </insert>
+
+    <!--更新数据-->
+    <update id="updateUser" parameterType="com.gyy.domain.User">
+        update user set name = #{name},pwd = #{pwd} where id = #{id}
+    </update>
+
+    <!--删除数据-->
+    <delete id="deleteUser" parameterType="int">
+        delete from user where id = #{id}
+    </delete>
+
+    <!--Map查询数据,parameterType就可以直接写为map,resultType为User-->
+    <select id="getUserByMap" parameterType="map" resultType="com.gyy.domain.User">
+        select * from user where id = #{uid}
+    </select>
+
+    <!--模糊查询-->
+    <select id="getUserByLike" parameterType="String" resultType="com.gyy.domain.User">
+        select * from user where name like #{username}
+    </select>
 </mapper>
