@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gyy.dao.TeacherMapper">
+
+
+
+    <!--2.按照嵌套查询处理-->
+    <select id="findTeacherById" resultMap="TeacherStudent">
+        <!--这里这个#{}里面要写接口方法里对应的那个-->
+       select id,name from teacher t where id = #{id}
+    </select>
+
+    <resultMap id="TeacherStudent" type="Teacher">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <!--这里这个tid就是传给子查询的查询条件-->
+        <collection property="students" javaType="ArrayList" ofType="Student" column="id" select="findStudentByTeacherId"/>
+    </resultMap>
+
+    <select id="findStudentByTeacherId" resultType="Student">
+        select * from student s where tid = #{tid}
+    </select>
+</mapper>
