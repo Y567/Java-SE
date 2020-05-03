@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gyy.dao.StudentMapper">
+
+    <sql id="idAndName">
+        <if test="id != null">
+            and id = #{id}
+        </if>
+        <if test="name != null">
+            and name = #{name}
+        </if>
+    </sql>
+
+    <select id="getStudentBySQL" parameterType="map" resultType="student">
+        select * from student
+        <where>
+            <include refid="idAndName"/>
+        </where>
+    </select>
+
+
+    <select id="getStudentByChoose" parameterType="map" resultType="student">
+        select * from student
+        <where>
+            <choose>
+                <when test="id != null">id = #{id}</when>
+                <when test="name != null">name = #{name}</when>
+                <!--如果前两个条件都没满足，那么就查第一条-->
+                <otherwise>id = 1</otherwise>
+            </choose>
+        </where>
+    </select>
+
+
+
+    <update id="updateStudentById" parameterType="map">
+        update student
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="tid != null">
+                tid = #{tid},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="getStudentByForeach" parameterType="map" resultType="student">
+        select * from student
+        <where>
+            <!--collection表示集合，item表示集合里的需要遍历的元素，open为开始的符号，close为结尾，separator为分割符号-->
+            <foreach collection="ids" item="id" open="and (" separator="or" close=")">
+                id = #{id}
+            </foreach>
+        </where>
+    </select>
+
+</mapper>
