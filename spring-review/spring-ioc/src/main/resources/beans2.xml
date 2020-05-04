@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--<bean id="user" class="com.gyy.pojo.User">-->
+        <!--&lt;!&ndash;第一种ioc创建对象的方式，无参构造，这种方式需要set方法的支持&ndash;&gt;-->
+        <!--<property name="name" value="阿狗"/>-->
+    <!--</bean>-->
+    <!--<bean id="user" class="com.gyy.pojo.User">-->
+        <!--&lt;!&ndash;根据有参构造的name来构造&ndash;&gt;-->
+        <!--<constructor-arg name="name" value="阿狗"/>-->
+    <!--</bean>-->
+
+    <bean id="user" class="com.gyy.pojo.User" name="user3,user4">
+        <constructor-arg index="0" value="阿狗"/>
+    </bean>
+
+    <alias name="user" alias="user2"/>
+
+
+</beans>
