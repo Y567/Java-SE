@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--spring整合mybatis-->
+
+    <!--1.我们让spring接管数据源-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <!--数据驱动-->
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <!--url-->
+        <property name="url" value="jdbc:mysql://localhost:3306/mybatis?characterEncoding=UTF-8"/>
+        <!--用户名-->
+        <property name="username" value="root"/>
+        <!--密码-->
+        <property name="password" value="yy5201314"/>
+    </bean>
+
+    <!--2.我们要向IOC容器中注入sqlSessionFactory对象,用来生成sqlSession对象（sqlSessionTemplate，这其实是mybatis-spring包的封装）的-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--这里既然涉及到数据库，那么肯定需要源的支持-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--这里我们可以绑定MyBatis的配置文件，让分工比较明确-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <!--绑定所有的映射文件-->
+        <property name="mapperLocations" value="classpath:com/gyy/dao/*.xml"/>
+    </bean>
+
+    <!--3.我们要向IOC容器中注入sqlSession对象,将来方便getMapper对应的实现类-->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <!--注意，这个sqlSessionTemplate是继承的sqlSession，创建sqlSession就需要sqlSessionFactory对象，但是这里没有set方法，所以用构造器注入-->
+        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+
+</beans>
