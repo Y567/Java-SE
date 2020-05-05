@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--spring整合mybatis-->
+
+    <!--导入连数据的配置文件-->
+    <import resource="spring-dao.xml"/>
+
+    <!--这个配置文件管注入对象，注入dao层实现类，将创建对象的任务交给Spring去做-->
+    <bean id="userMapper" class="com.gyy.dao.impl.UserMapperImpl">
+        <!--第二种方式需要注入sqlSessionFactory-->
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+
+</beans>
