@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--需要导入aop的约束-->
+
+    <!--注册bean对象-->
+    <bean id="userService" class="com.gyy.service.impl.UserServiceImpl"/>
+    <bean id="beforeLog" class="com.gyy.log.BeforeLog"/>
+    <bean id="afterLog" class="com.gyy.log.AfterLog"/>
+
+    <!--方式一：接口实现，配置aop-->
+    <!--<aop:config>-->
+        <!--&lt;!&ndash;切入点表达式指定了需要增强那个类的哪个方法，id是表达式的名字，表达式指定位置&ndash;&gt;-->
+        <!--<aop:pointcut id="userServiceCut" expression="execution(* com.gyy.service.impl.*.*(..))"/>-->
+
+        <!--&lt;!&ndash;环绕通知，配置通知咯&ndash;&gt;-->
+        <!--<aop:advisor advice-ref="beforeLog" pointcut-ref="userServiceCut"/>-->
+        <!--<aop:advisor advice-ref="afterLog" pointcut-ref="userServiceCut"/>-->
+    <!--</aop:config>-->
+
+    <bean id="userAspect" class="com.gyy.aspect.UserAspect"/>
+
+    <!--方式二：通过切面实现-->
+    <!--<aop:config>-->
+        <!--&lt;!&ndash;ref引入我们自己写的那个切面类&ndash;&gt;-->
+        <!--<aop:aspect ref="userAspect">-->
+            <!--&lt;!&ndash;切入点表达式,从哪里切入&ndash;&gt;-->
+            <!--<aop:pointcut id="point" expression="execution(* com.gyy.service.impl.*.*(..))"/>-->
+            <!--&lt;!&ndash;前置通知&ndash;&gt;-->
+            <!--<aop:before method="before" pointcut-ref="point"/>-->
+            <!--&lt;!&ndash;后置通知&ndash;&gt;-->
+            <!--<aop:after method="after" pointcut-ref="point"/>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
+
+    <!--方式三：注解，该参数默认为false，使用的JDK的动态代理方式，如果为true为cglib，结果当然一样，只是底层运行不一样-->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+</beans>
