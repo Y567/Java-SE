@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--映射配置文件,映射book接口-->
+<mapper namespace="com.gyy.dao.BookMapper">
+
+    <insert id="addBook" parameterType="user">
+        insert into book(bookName,bookCounts,detail) values(#{bookName},#{bookCounts},#{detail})
+    </insert>
+
+    <delete id="deleteBook" parameterType="_int">
+        delete from book where bookId = #{id}
+    </delete>
+
+    <update id="updateBook" parameterType="user">
+        update book set bookName = #{bookName},bookCounts = #{bookCounts},detail = #{detail} where bookId = #{bookId}
+    </update>
+
+    <select id="selectBook" resultType="user">
+        select * from book
+    </select>
+
+</mapper>
