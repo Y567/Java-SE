@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!--这里完成dao层对象的注入-->
+
+    <!--1.首先需要引入database.properties文件进行数据库配置叭-->
+    <context:property-placeholder location="classpath:database.properties"/>
+
+    <!--2.让spring接管数据源-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${driver}"/>
+        <property name="jdbcUrl" value="${url}"/>
+        <property name="user" value="${username}"/>
+        <property name="password" value="${password}"/>
+        <!--等等其他关于数据库的配置-->
+
+        <!--接下来的数据库配置是c3p0相关的配置-->
+        <property name="maxPoolSize" value="30"/>
+        <property name="minPoolSize" value="10"/>
+        <!--不自动提交-->
+        <property name="autoCommitOnClose" value="false"/>
+        <!--连接超时时间-->
+        <property name="checkoutTimeout" value="10000"/>
+        <!--获取连接失败后重试次数-->
+        <property name="acquireRetryAttempts" value="2"/>
+    </bean>
+
+    <!--3.注入SqlSessionFactory（mybatis创建接口实现类需要用到叭）关联mybatis文件-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!--关联mybatis文件-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+    </bean>
+
+    <!--4.这里有一种新的合并方法，可以省去写实现类的方法,通过扫描接口包，框架替我们反射创建-->
+    <bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--这是指定要扫描包-->
+        <property name="basePackage" value="com.gyy.dao"/>
+        <!--注入sqlSessionFactory为这个类，你想嘛，有了sqlSessionFactory才可以创建sqlSession对象再getMapper嘛，有因必有果-->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+
+</beans>
