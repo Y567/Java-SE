@@ -16,4 +16,9 @@
         <package name="com.gyy.pojo"/>
     </typeAliases>
 
+    <mappers>
+        <!--绑定接口-->
+        <mapper class="com.gyy.dao.BookMapper"/>
+    </mappers>
+
 </configuration>

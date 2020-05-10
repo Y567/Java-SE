@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+
     <artifactId>spring-books</artifactId>
 
     <dependencies>
@@ -16,7 +17,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.6.25</version>
+            <version>5.1.47</version>
         </dependency>
         <!--整合mybatis用-->
         <dependency>
@@ -31,20 +32,22 @@
         </dependency>
         <!--连接池-->
         <dependency>
-            <groupId>c3p0</groupId>
+            <groupId>com.mchange</groupId>
             <artifactId>c3p0</artifactId>
-            <version>0.9.1.2</version>
+            <version>0.9.5.2</version>
         </dependency>
         <!--jsp系列-->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jsp-api</artifactId>
             <version>2.5</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>jstl</groupId>
