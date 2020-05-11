@@ -26,7 +26,7 @@
     </div>
 </div>
 <%--RestFul风格url--%>
-<form action="${pageContext.request.contextPath}/book/updateBook/{bookId}/{bookName}/{bookCounts}/{detail}" method="post">
+<form action="${pageContext.request.contextPath}/book/updateBook/${book.bookId}/${book.bookName}/${book.bookCounts}/${detail}" method="post">
     <%--这里设置一个隐藏域将来提交修改后方便依据该id进行修改数据--%>
     <input type="hidden" name="${book.bookId}"/>
     <div class="form-group">
