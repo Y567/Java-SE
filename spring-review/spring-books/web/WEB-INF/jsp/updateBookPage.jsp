@@ -26,23 +26,23 @@
     </div>
 </div>
 <%--RestFul风格url--%>
-<form action="${pageContext.request.contextPath}/book/updateBook/${book.bookId}/${book.bookName}/${book.bookCounts}/${detail}" method="post">
+<form action="${pageContext.request.contextPath}/book/updateBook" method="post">
     <%--这里设置一个隐藏域将来提交修改后方便依据该id进行修改数据--%>
-    <input type="hidden" name="${book.bookId}"/>
+    <input type="hidden" name="bookId" value="${book.bookId}"/>
     <div class="form-group">
         <label>书籍名称: </label>
-        <input type="text" name="bookName" value="${book.bookName}" class="form-control" required>
+        <input type="text" name="bookName" value="${book.bookName}" class="form-control" required/>
     </div>
     <div class="form-group">
         <label>书籍数量: </label>
-        <input type="text" name="bookCounts" value="${book.bookCounts}" class="form-control" required>
+        <input type="text" name="bookCounts" value="${book.bookCounts}" class="form-control" required/>
     </div>
     <div class="form-group">
         <label>书籍描述: </label>
-        <input type="text" name="detail" value="${book.detail}" class="form-control" required>
+        <input type="text" name="detail" value="${book.detail}" class="form-control" required/>
     </div>
     <div class="form-group">
-        <input type="submit" class="form-control" value="修改" required>
+        <input type="submit" class="form-control" value="修改" required/>
     </div>
 </form>
 

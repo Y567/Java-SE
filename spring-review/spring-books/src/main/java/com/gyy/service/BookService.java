@@ -31,4 +31,11 @@ public interface BookService {
      * @return 返回一个列表
      */
     List<Book> selectBook();
+
+    /**
+     * 根据id查询书籍并回显数据
+     * @param bookId 书籍的id
+     * @return   返回值
+     */
+    Book selectBookById(int bookId);
 }

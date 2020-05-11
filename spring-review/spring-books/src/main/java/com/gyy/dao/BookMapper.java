@@ -33,4 +33,11 @@ public interface BookMapper {
      * @return 返回一个列表
      */
     List<Book> selectBook();
+
+    /**
+     * 根据id查询对应的书籍
+     * @param bookId id
+     * @return  返回一个书籍对象
+     */
+    Book selectBookById(int bookId);
 }

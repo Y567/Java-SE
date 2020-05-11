@@ -10,7 +10,7 @@
         insert into book(bookName,bookCounts,detail) values(#{bookName},#{bookCounts},#{detail})
     </insert>
 
-    <delete id="deleteBook" parameterType="_int">
+    <delete id="deleteBookById" parameterType="_int">
         delete from book where bookId = #{id}
     </delete>
 
@@ -20,6 +20,10 @@
 
     <select id="selectBook" resultType="book">
         select * from book
+    </select>
+
+    <select id="selectBookById" parameterType="_int" resultType="book">
+        select * from book where bookId = #{bookId}
     </select>
 
 </mapper>

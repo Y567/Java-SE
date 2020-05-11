@@ -15,7 +15,7 @@
 <body>
 <div class="container">
     <div class="row clearfix">
-        <div class="col-md-12 clumn">
+        <div class="col-md-12 column">
             <div class="page-header">
                 <h1>
                    <small>书籍列表 ----------- 显示所有书籍</small>
@@ -25,7 +25,7 @@
     </div>
     <div class="row">
         <div class="col-md-4 column">
-            <a class="btn btn-info" href="${pageContext.request.contentPath}/book/addBook">增加书籍</a>
+            <a class="btn btn-info" href="${pageContext.request.contextPath}/book/toAddBook">增加书籍</a>
         </div>
     </div>
 </div>
@@ -39,6 +39,7 @@
                 <th>书籍名称</th>
                 <th>书籍数量</th>
                 <th>书籍详情</th>
+                <th>书籍操作</th>
             </tr>
             </thead>
             <tbody>
@@ -48,6 +49,9 @@
                         <td>${book.bookName}</td>
                         <td>${book.bookCounts}</td>
                         <td>${book.detail}</td>
+                        <td><a href="${pageContext.request.contextPath}/book/toUpdateBook/${book.bookId}">修改</a>
+                             |
+                            <a href="${pageContext.request.contextPath}/book/deleteBook/${book.bookId}">删除</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
