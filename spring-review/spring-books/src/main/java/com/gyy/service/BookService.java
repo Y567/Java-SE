@@ -38,4 +38,10 @@ public interface BookService {
      * @return   返回值
      */
     Book selectBookById(int bookId);
+
+
+    /**
+     * 查询指定名字的书籍\
+     */
+    List<Book> selectBookByName(String name);
 }

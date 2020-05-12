@@ -40,4 +40,9 @@ public interface BookMapper {
      * @return  返回一个书籍对象
      */
     Book selectBookById(int bookId);
+
+    /**
+     * 查询指定名字的书籍
+     */
+    List<Book> selectBookByName(String name);
 }

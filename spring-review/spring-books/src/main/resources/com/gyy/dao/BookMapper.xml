@@ -26,4 +26,8 @@
         select * from book where bookId = #{bookId}
     </select>
 
+    <select id="selectBookByName" parameterType="string" resultType="book">
+        select * from book where bookName like #{name}
+    </select>
+
 </mapper>

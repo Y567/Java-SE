@@ -19,6 +19,7 @@
             <div class="page-header">
                 <h1>
                    <small>书籍列表 ----------- 显示所有书籍</small>
+                    <small>${error}</small>
                 </h1>
             </div>
         </div>
@@ -27,6 +28,17 @@
         <div class="col-md-4 column">
             <a class="btn btn-info" href="${pageContext.request.contextPath}/book/toAddBook">增加书籍</a>
         </div>
+        <div class="col-md-1 column">
+            <a class="btn btn-info" href="${pageContext.request.contextPath}/book/allBook">所有书籍</a>
+        </div>
+        <form action="${pageContext.request.contextPath}/book/selectBookByName">
+            <div class="form-group" style="float: left;">
+                <input type="text" class="form-control" name="bookName" placeholder="请输入书籍的名字">
+            </div>
+            <div style="float: right;">
+                <input class="btn btn-info" type="submit">
+            </div>
+        </form>
     </div>
 </div>
 

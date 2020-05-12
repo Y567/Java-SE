@@ -81,5 +81,15 @@ public class BookController {
         return "redirect:/book/allBook";
     }
 
+    @RequestMapping("/selectBookByName")
+    public String selectBookByName(String bookName,Model model){
+        List<Book> books = bookService.selectBookByName("%" + bookName + "%");
+        if(books.isEmpty()){
+            model.addAttribute("error","没数据");
+        }
+        model.addAttribute("books",books);
+        return "allBook";
+
+    }
 
 }
