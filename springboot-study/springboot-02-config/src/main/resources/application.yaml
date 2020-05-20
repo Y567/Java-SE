@@ -1,0 +1,9 @@
+person:
+  name: 噶偶
+  hobby:
+    - 听歌
+    - 听音乐
+    - 看电影
+  map: {key1: value1, key2: value2}
+  dog:
+    name: 无情的人
