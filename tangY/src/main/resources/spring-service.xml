@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!--这里完成service层对象的注入-->
+
+    <!--扫描service的包(这个是为了注解,这里我们使用配置文件)-->
+    <context:component-scan base-package="com.gyy.service"/>
+    <!--1.完成所有业务类的注入-->
+    <bean id="poetryService" class="com.gyy.service.impl.PoetryServiceImpl">
+        <!--poetryMapper其实已经再spring-dao中注入到容器中了这里可以使用-->
+        <property name="poetryMapper" ref="poetryMapper"/>
+    </bean>
+
+    <!--2.配置事务管理器,让数据库支持事务-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--需要一个数据源对象-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--3.配置AOP,按照需求对某些方法改变事务等-->
+     <!--这里我们配置了事务管理器后,其实默认就是支持事务了,aop的作用其实更倾向于了动态代理-->
+
+</beans>

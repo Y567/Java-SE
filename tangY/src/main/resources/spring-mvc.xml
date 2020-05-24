@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!--spring-mvc配置文件主要干了这么几件事-->
+    <!--1.开启注解支持-->
+    <mvc:annotation-driven/>
+    <!--2.开启静态资源过滤,其实是将静态资源交给web服务器去处理,还有另一种方法mvc:resources-->
+    <mvc:default-servlet-handler/>
+    <!--3.扫描指定的controller包-->
+    <context:component-scan base-package="com.gyy.controller"/>
+    <!--4.配置视图解析器,处理器映射器和处理器适配器框架替我们做了-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--配置前后缀,方便框架找静态资源-->
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".html"/>
+    </bean>
+</beans>

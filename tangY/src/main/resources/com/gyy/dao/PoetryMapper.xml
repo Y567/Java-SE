@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--映射配置文件,映射book接口-->
+<mapper namespace="com.gyy.dao.PoetryMapper">
+
+    <!--查询诗人的作诗量-->
+    <select id="findByAmount" resultType="echart" parameterType="map">
+        select author as name, count(id) as count
+        from tangshi
+        group by author
+        having count >= #{left}
+           and count <![CDATA[<=]]> #{right} order by count desc</select>
+
+    <!--查找诗人的词云-->
+    <select id="findWordsByName" resultType="String" parameterType="String">
+        select words from tangshi
+        <where>
+            <if test="!(name.equals('大家'))">
+                author = #{name}
+            </if>
+        </where>
+    </select>
+
+    <!--按名字个数查询诗人名字-->
+    <select id="findPoetByName" resultType="String" parameterType="_int">
+        <if test="i==2">
+            select distinct author from tangshi group by author having author like '__'
+        </if>
+        <if test="i==3">
+            select distinct author from tangshi group by author having author like '___'
+        </if>
+
+    </select>
+
+</mapper>
