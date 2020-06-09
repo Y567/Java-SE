@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    username: root
+    password: yy5201314
+    url: jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
