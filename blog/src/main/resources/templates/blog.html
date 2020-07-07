@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
+    <title>博客</title>
+    <link rel="stylesheet" href="../static/css/me.css"/>
+</head>
+<body>
+    <!--导航-->
+    <nav class="ui inverted attached segment m-padding-tb-mini m-shadow-small">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <h2 class="ui teal header item">Y567</h2>
+                <a href="" class="active m-item item m-mobile-hide"><i class="mini home icon"></i>首页</a>
+                <a href="" class="m-item item m-mobile-hide"><i class="mini idea icon"></i>分类</a>
+                <a href="" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
+                <a href="" class="m-item item m-mobile-hide"><i class="mini clone icon"></i>归档</a>
+                <a href="" class="m-item item m-mobile-hide"><i class="mini info icon"></i>关于我</a>
+                <!--搜索栏-->
+                <div class="right m-item item m-mobile-hide">
+                    <div class="ui icon inverted transparent input">
+                        <input type="text" placeholder="要搜点什么呢">
+                        <i class="search link icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="menu toggle ui black icon button m-right-top m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+
+    <!--中间内容-->
+    <div class="m-container-small m-padding-tb-big">
+        <div class="ui container">
+            <div class="ui top attached segment">
+                <!--头部-->
+                <div class="ui horizontal link list">
+                    <div class="item">
+                        <img src="https://picsum.photos/seed/picsum/100/100" alt="" class="ui avatar image">
+                        <div class="content"><a href="#" class="header">阿狗传</a></div>
+                    </div>
+                    <div class="item">
+                        <i class="calendar icon"></i>2017-10-01
+                    </div>
+                    <div class="item">
+                        <i class="eye icon"></i>222
+                    </div>
+                </div>
+            </div>
+            <div class="ui attached segment">
+                <img src="https://picsum.photos/seed/picsum/800/450" alt="" class="ui fluid rounded image">
+            </div>
+            <div class="ui attached padded segment">
+                <!--内容-->
+                <div class="ui right aligned basic segment">
+                    <div class="ui orange basic label">原创</div>
+                </div>
+                <h2 class="ui center aligned header">关于狗子变了这个真相</h2>
+                <div id="content" class="m-padding-lr-response">
+                    <div class="detail-description">狗子你变了表情包是网上流传的非常火热的表情包，是由现在生活一小女孩的表情改编而成的，并得到本人的确认许可。这款表情非常的滑稽、幽默。</div>
+                    <div class="course-content" style="padding: 20px;"><p style="text-align: center;"><img src="https://tp1.tupiankucdn.com/gif/s/20181018/9fa97f1ecffaa015b24ae8e7e08aca2c.jpg"></p><p style="text-align: center;"><img src="https://tp1.tupiankucdn.com/gif/s/20181018/19c9d64226cd496a759282f32c728e3a.jpg"></p><p style="text-align: center;"><img src="https://tp1.tupiankucdn.com/gif/s/20181018/975f52667937384ddf7cc9c0ab4d11dd.jpg"></p><p style="text-align: center;"><img src="https://tp1.tupiankucdn.com/gif/s/20181018/1777382abac3eef738a42ed3d1815dee.jpg"></p><p style="text-align: center;"><img src="https://tp1.tupiankucdn.com/gif/s/20181018/5bb1696360cc8d20232d823b685c9560.jpg"></p><p style="text-align: center;"><img src="https://tp1.tupiankucdn.com/gif/s/20181018/b9c90762f5374a72355963e8a8d40a61.jpg"></p><p style="text-align: center;"><img src="https://tp1.tupiankucdn.com/gif/s/20181018/322b3a42b00c2e74f49bf2702c973883.jpg"></p><p style="text-align: center;"><img src="https://tp1.tupiankucdn.com/gif/s/20181018/c06f13181d8ba68b268ba7fab9dd6cc7.jpg"></p><p style="text-align: center;"><img src="https://tp1.tupiankucdn.com/gif/s/20181018/06cc9e0f4e82ea88374903e2f4950b95.gif"></p><p style="text-align: center;"><img src="https://tp1.tupiankucdn.com/gif/s/20181018/3829ceeee07bee21338087523e937586.jpg"></p><p style="text-align: center;"><img src="https://tp1.tupiankucdn.com/gif/s/20181018/f9745ae211d109a37c58d6d14b9b2798.jpg"></p><p style="text-align: center;"><img src="https://tp1.tupiankucdn.com/gif/s/20181018/f91f91601b9dec4b6dbbe28d19f1d550.jpg"></p><p><br></p></div>
+                </div>
+                <!--文章底部标签-->
+                <div class="m-padding-lr-response">
+                    <div class="ui basic teal left pointing label">阿狗</div>
+                </div>
+                <!--底部赞赏-->
+                <div class="ui center aligned basic segment">
+                    <button id="payButton" class="ui orange basic circular button">赞赏</button>
+                </div>
+                <div class="ui payQR flowing popup transition hidden m-opacity-mini">
+                    <div class="ui basic label">
+                        <div class="ui images" style="font-size: inherit !important;">
+                            <div class="image">
+                                <img src="../static/images/index.png" alt="" class="ui rounded bordered image" style="width: 120px">
+                                <div>支付宝</div>
+                            </div>
+                            <div class="image">
+                                <img src="../static/images/index.png" alt="" class="ui rounded bordered image" style="width: 120px">
+                                <div>微信</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui attached positive message">
+                <!--博客信息-->
+                <div class="ui grid">
+                    <div class="eleven wide column">
+                        <ul class="list">
+                            <li>作者:李仁密(联系作者) </li>
+                            <li>发表时间: 2017-10-02 09:08</li>
+                            <li>版权声明:自由转载-非商用-非衍生-保持署名(创意共享3. 0许可证) </li>
+                            <li>公众号转载:请在文末添加作者公众号二维码</li>
+                        </ul>
+                    </div>
+                    <div class="five wide column">
+                        <img src="../static/images/index.png" alt="" class="ui right floated rounded bordered image" style="width: 110px">
+                    </div>
+                </div>
+            </div>
+            <div class="ui bottom attached segment">
+                <!--留言区域列表-->
+                <div class="ui teal segment">
+                    <div class="ui comments">
+                        <h3 class="ui dividing header">评论</h3>
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="../static/images/index.png">
+                            </a>
+                            <div class="content">
+                                <a class="author">Matt</a>
+                                <div class="metadata">
+                                    <span class="date">Today at 5:42PM</span>
+                                </div>
+                                <div class="text">
+                                    How artistic!
+                                </div>
+                                <div class="actions">
+                                    <a class="reply">Reply</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="../static/images/index.png">
+                            </a>
+                            <div class="content">
+                                <a class="author">Elliot Fu</a>
+                                <div class="metadata">
+                                    <span class="date">Yesterday at 12:30AM</span>
+                                </div>
+                                <div class="text">
+                                    <p>This has been very useful for my research. Thanks as well!</p>
+                                </div>
+                                <div class="actions">
+                                    <a class="reply">Reply</a>
+                                </div>
+                            </div>
+                            <div class="comments">
+                                <div class="comment">
+                                    <a class="avatar">
+                                        <img src="../static/images/index.png">
+                                    </a>
+                                    <div class="content">
+                                        <a class="author">Jenny Hess</a>
+                                        <div class="metadata">
+                                            <span class="date">Just now</span>
+                                        </div>
+                                        <div class="text">
+                                            Elliot you are always so right :)
+                                        </div>
+                                        <div class="actions">
+                                            <a class="reply">Reply</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="../static/images/index.png">
+                            </a>
+                            <div class="content">
+                                <a class="author">Joe Henderson</a>
+                                <div class="metadata">
+                                    <span class="date">5 days ago</span>
+                                </div>
+                                <div class="text">
+                                    Dude, this is awesome. Thanks so much
+                                </div>
+                                <div class="actions">
+                                    <a class="reply">Reply</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--提交留言区-->
+                <div class="ui form">
+                    <div class="field">
+                        <textarea name="content" placeholder="请留下您的评论"></textarea>
+                    </div>
+                    <div class="fields">
+                        <div class="field m-mobile-wide m-margin-bottom-small">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" name="nickname" placeholder="姓名">
+                            </div>
+                        </div>
+                        <div class="field m-mobile-wide m-margin-bottom-small">
+                            <div class="ui left icon input">
+                                <i class="mail icon"></i>
+                                <input type="text" name="email" placeholder="邮箱">
+                            </div>
+                        </div>
+                        <div class="field m-mobile-wide m-margin-bottom-small">
+                            <button class="ui teal button m-mobile-wide"><i class="edit icon"></i>发布</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--底部footer-->
+    <footer class="ui inverted vertical segment m-padding-tb-massive">
+        <div class="ui center aligned container">
+            <div class="ui inverted divided stackable grid">
+                <!--图片-->
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+                        <div class="item">
+                            <img src="../static/images/index.png" class="ui rounded image" alt="" style="width: 110px">
+                        </div>
+                    </div>
+                </div>
+                <!--最新博客-->
+                <div class="three wide column">
+                    <h4 class="ui inverted header">最新博客</h4>
+                    <div class="ui inverted link list m-text-lined m-text-spaced m-text-spaced m-opacity-mini">
+                        <a href="#" class="item">狗子的快乐生活</a>
+                        <a href="#" class="item">小强的快乐生活</a>
+                        <a href="#" class="item">阿崇的快乐生活</a>
+                    </div>
+                </div>
+                <!--联系我-->
+                <div class="three wide column">
+                    <h4 class="ui inverted header">联系我</h4>
+                    <div class="ui inverted link list m-text-lined m-text-spaced m-text-spaced m-opacity-mini">
+                        <a href="#" class="item">邮箱：wlan10@sina.com</a>
+                        <a href="#" class="item">微信：ap10038</a>
+                        <a href="#" class="item">QQ：1592221415</a>
+                    </div>
+                </div>
+                <!--Y567-->
+                <div class="seven wide column">
+                    <h4 class="ui inverted header">Y567</h4>
+                    <p class="m-text-lined m-text-spaced m-text-spaced m-opacity-tiny">
+                        在这里我会分享自己的编程，学习等，希望不仅是对自己的学习历程的记录还是对大家的帮助，让我们记录美好生活！！！
+                    </p>
+                </div>
+            </div>
+            <!--分割线-->
+            <div class="ui inverted section divider"></div>
+            <p class="m-text-lined m-text-spaced m-text-spaced m-opacity-tiny">© 2020 All rights reserved | Made with love By Y567</p>
+        </div>
+
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+<script>
+    $(function () {
+        $('.menu.toggle').click(function () {
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
+
+        //赞赏功能点击事件
+        $('#payButton').popup({
+            popup: $('.payQR.popup'),
+            on: 'click',
+            position: 'bottom center'
+        });
+    });
+</script>
+</body>
+</html>
