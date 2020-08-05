@@ -18,7 +18,7 @@
             <!--左边放一张图片-->
             <div class="eleven wide column">
                 <div class="ui segment">
-                    <img th:src="@{/images/index.png}" alt="我喜欢" class="ui rounded image">
+                    <img th:src="@{/images/timg.png}" alt="我喜欢" class="ui rounded image">
                 </div>
             </div>
             <!--自我介绍-->
@@ -44,14 +44,14 @@
                     <div class="ui blue basic left pointing label m-margin-tb-tiny">...</div>
                 </div>
                 <div class="ui bottom attached segment">
-                    <a href="#" class="ui circular icon button"><i class="github icon"></i></a>
+                    <a href="#" class="ui circular icon button" th:href="@{https://github.com/Y567}"><i class="github icon"></i></a>
                     <a href="#" class="ui weixin circular icon button"><i class="weixin icon"></i></a>
                     <a href="#" class="ui qq circular icon button" data-content="1592221415" data-position="top center"><i class="qq icon"></i></a>
                 </div>
 
                 <!--鼠标移动到图标上，显示图片设置-->
                 <div class="ui wechat-qr flowing popup transition hidden m-opacity-mini">
-                    <img src="../static/images/index.png" alt="" class="ui rounded bordered image" style="width: 100px">
+                    <img th:src="@{/images/wechat.jpg}" alt="" class="ui rounded bordered image" style="width: 100px">
                 </div>
             </div>
         </div>

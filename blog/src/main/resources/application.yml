@@ -1,0 +1,12 @@
+# 两套环境
+spring:
+  profiles:
+    active: pro
+
+# 评论的图片
+comment:
+  avatar: /images/avatar.png
+
+# 我的头像,这个直接在数据库中
+y567:
+  avatar: /images/y567.png

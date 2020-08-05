@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css}">
+    <title>博客管理</title>
+    <link rel="stylesheet" th:href="@{/css/me.css}"/>
+</head>
+<body>
+<!--导航-->
+<div th:replace="~{commons/_fragmentsBackground.html::nav(1)}"></div>
+<!--二级导航-->
+<div class="ui attached pointing menu">
+    <div class="ui container">
+        <div class="right menu">
+            <a href="#" class="teal item">发布</a>
+            <a href="#" class="teal active item">列表</a>
+        </div>
+    </div>
+</div>
+<!--中间内容-->
+<div class="m-container-small m-mobile-wide m-padding-tb-big">
+    <div class="ui container">
+        <div class="ui success large message">
+            <h3>Hi,</h3>
+            <p>Y567,欢迎登录</p>
+        </div>
+        <img th:src="@{/images/timg.png}" class="ui rounded fluid image" style="max-height: 400px">
+    </div>
+</div>
+
+<!--底部footer-->
+<div th:replace="~{commons/_fragments.html::footer}"></div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+<script>
+    $(function () {
+        $('.menu.toggle').click(function () {
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
+
+        // 下拉菜单
+        $('.ui.dropdown').dropdown({
+            on: "hover"
+        });
+    });
+</script>
+</body>
+</html>

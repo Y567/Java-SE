@@ -27,7 +27,7 @@ public class LogAspect {
         private String classMethod;
         private Object[] args;
 
-        public LogContent(String url, String ip, String classMethod, Object[] args) {
+        LogContent(String url, String ip, String classMethod, Object[] args) {
             this.url = url;
             this.ip = ip;
             this.classMethod = classMethod;
@@ -53,6 +53,7 @@ public class LogAspect {
     public void doBefore(JoinPoint joinPoint){
         //1.0获取request
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        assert requestAttributes != null;
         HttpServletRequest request = requestAttributes.getRequest();
 
         //2.0获取url和访客ip地址
@@ -77,6 +78,5 @@ public class LogAspect {
     public void doAfterReturning(Object result){
         logger.info("服务器端返回的内容:{}",result);
     }
-
 
 }
