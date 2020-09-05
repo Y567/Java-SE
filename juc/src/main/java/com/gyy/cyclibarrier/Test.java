@@ -15,6 +15,7 @@ public class Test {
             new Thread(()->{
                 try {
                     System.out.println("执行完了"+t+"任务");
+                    //挂起当前线程，等所有线程都到这一步了在一起执行
                     cb.await();
                 } catch (InterruptedException | BrokenBarrierException e) {
                     e.printStackTrace();
